@@ -1,0 +1,66 @@
+import random
+
+def intro():
+    print("You wake up in a dense forest with no memory of how you got there.")
+    print("The forest is dark, and you hear strange noises around you.")
+    print("You can go in one of three directions: left, right, or straight.")
+    print("Which direction will you go?")
+
+def choice():
+    direction = input("\nType 'left', 'right', or 'straight' to choose a direction: ").lower()
+    if direction == "left":
+        bear_encounter()
+    elif direction == "right":
+        river_crossing()
+    elif direction == "straight":
+        treasure_find()
+    else:
+        print("Invalid choice. Try again.")
+        choice()
+
+def bear_encounter():
+    print("\nYou walk to the left and encounter a huge bear!")
+    print("Do you want to 'run' or 'climb' a nearby tree?")
+    action = input("Choose your action: ").lower()
+    if action == "run":
+        if random.choice([True, False]):
+            print("You escaped successfully!")
+        else:
+            print("The bear catches up to you. Game over.")
+    elif action == "climb":
+        print("You climb the tree and wait until the bear leaves. You're safe... for now.")
+    else:
+        print("Invalid choice. The bear notices your hesitation and attacks. Game over.")
+
+def river_crossing():
+    print("\nYou walk to the right and reach a fast-flowing river.")
+    print("You see a narrow log bridge and a raft made of sticks.")
+    print("Do you want to 'cross' the log bridge or use the 'raft'?")
+    action = input("Choose your action: ").lower()
+    if action == "cross":
+        if random.choice([True, False]):
+            print("You carefully cross the log bridge and make it to the other side!")
+        else:
+            print("You lose your balance and fall into the river. Game over.")
+    elif action == "raft":
+        print("You manage to navigate the river using the raft and reach safety on the other side.")
+    else:
+        print("Invalid choice. The river's current is too strong and you are swept away. Game over.")
+
+def treasure_find():
+    print("\nYou walk straight and discover an old, hidden chest!")
+    print("Do you want to 'open' the chest or 'ignore' it and keep walking?")
+    action = input("Choose your action: ").lower()
+    if action == "open":
+        print("You find a treasure map! You win!")
+    elif action == "ignore":
+        print("You decide to keep walking, but nothing exciting happens. The game ends here.")
+    else:
+        print("Invalid choice. You stand there indecisively until it gets dark. Game over.")
+
+def main():
+    intro()
+    choice()
+
+# Start the game
+main()
